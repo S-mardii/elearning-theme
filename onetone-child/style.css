@@ -1,0 +1,115 @@
+/*
+Theme Name: Onetone Child
+Theme URI: http://www.mageewp.com/onetone-theme.html
+Description: Onetone is a one-page business theme based on Bootstrap framework and coded with HTML5/CSS3. All required information are displayed on a single page with clear order according to users' preferences. The basic sections designed for business purpose have already been built for you, such as services, about, gallery, clients, etc. There's also an extensive admin panel where unlimited sections can be easily added. Multiple options are available if you prefer to do some adjustments, such as changing background, parallax scrolling background, video background, Font Awesome Icons, uploading logo and  favicon,adding custom CSS and so on. The theme is also responsive, clean, and SEO optimized. Please note that with our updation, interface of your blog can grow up with futher more diversities.
+Version: 1.6.7
+Author: MageeWP
+Author URI: http://www.mageewp.com
+Template: onetone
+License: GNU General Public License
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Tags: one-column, two-columns, dark,light,gray, responsive-layout, custom-background, custom-header, custom-menu, theme-options, left-sidebar, translation-ready, editor-style, featured-images, full-width-template, rtl-language-support, custom-colors, threaded-comments, buddypress, post-formats
+Text Domain: onetone-child
+
+OneTone Wordpress Theme has been created by Mageewp.com, Copyright 2016 Mageewp.com.
+OneTone Wordpress theme is released under the terms of GNU GPL.
+*/
+
+.site-name {
+	margin: 0 0 2px 0;
+	color: #81d742!important;
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 1;
+	margin-top: 10px;
+}
+.site-tagline {
+	color: #595959;
+        font-size: 18px;
+}
+img.site-logo {
+	margin: 10px 10px 10px 0;
+        height: 100px;
+}
+.site-logo{
+    height: 150px;
+}
+.format-quote .entry-content blockquote p { 
+    font-size: 30px;//25px; edited
+    color: #222222;
+    line-height: 2;//1.3;
+}
+.entry-title { //edited
+	font-family: "Roboto",sans-serif;//'Yanone Kaffeesatz',sans-serif; edited styles by leng
+	font-size: 36px;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: #4b6357;//#666;
+	margin: 0 0 10px;
+        font-weight: bold;
+        
+        
+}
+.page-title-bar {
+	background-color: #5d9646;
+	background-position: ;
+	padding: 20px 0 20px;//50px 0 50px; Edited style by leng
+	border-top:1px solid transparent;
+	border-bottom: 1px solid transparent;
+        color:white !important;text-transform: uppercase; //edited
+}
+.entry-header {
+	margin-bottom: 50px; //edited
+}
+.page-title-bar a {
+        color: white !important;
+    }
+@media screen and (max-width: 919px){
+.site-nav li#menu-item-603 ul {
+    display: block;
+}
+.site-nav li#menu-item-590 ul {
+    display: block;
+}
+.site-nav li#menu-item-588 ul {
+    display: block;
+}
+.site-nav li#menu-item-589 ul {
+    display: block;
+}
+.site-nav li#menu-item-596 ul {
+    display: block;
+}
+.site-nav li#menu-item-598 ul {
+    display: block;
+}
+.site-nav li#menu-item-595 ul {
+    display: block;
+}
+.site-nav li#menu-item-597 ul {
+    display: block;
+}
+.site-nav li#menu-item-599 ul {
+    display: block;
+}
+}
+
+/* add font khmer 08/04/2016*/ 
+.entry-content p, .entry-title, h1, .trail-end, .widget-box a{
+    font-family: 'Hanuman',serif;
+   line-height: normal;
+}
+
+.wpcufpn_container .text span, .wpcufpn_container .title span{
+    
+    font-family: 'Hanuman',serif;
+}
+
+.wpcufpn_container.default .text, .wpcufpn_container.default .date, .wpcufpn_container.default .category{
+    
+    text-align: justify;
+}
+.wpcufpn_container .text span{
+    
+    margin-bottom: 20px;
+}
