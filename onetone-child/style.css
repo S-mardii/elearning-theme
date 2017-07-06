@@ -52,7 +52,7 @@ img.site-logo {
 }
 .page-title-bar {
 	background-color: #5d9646;
-	background-position: ;
+	/*background-position: ;*/
 	padding: 20px 0 20px;//50px 0 50px; Edited style by leng
 	border-top:1px solid transparent;
 	border-bottom: 1px solid transparent;
@@ -152,4 +152,26 @@ img.site-logo {
 /* course tab content */
 .tab-content {
     margin-top: 2%;
+}
+
+button#course-btn {
+    float: right;
+}
+
+div.course-embeded-video {
+    padding-bottom: 43%;
+}
+
+h3.course-section-title {
+    background-color: #5d9646;
+    border-radius: 2px;
+    color: #FFF;
+    opacity: 0.6;
+    padding: 5px;
+}
+
+section.post-title-bar {
+    background-color: #5d9646;
+    color: #FFF !important;
+    text-transform: uppercase;
 }

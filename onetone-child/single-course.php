@@ -33,16 +33,23 @@ $aside = 'no-aside';
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> > 
 
 <!--    edited styles by leng-->
-<section class="page-title-bar title-left no-subtitle color_alternate" style="background-color: #5d9646; color: white !important; text-transform: uppercase;">
+<section class="page-title-bar title-left no-subtitle color_alternate">
     <div class="container">
         <hgroup class="page-title">
             <h1><?php the_title();?></h1>
-            <!-- <ul class="entry-meta">
-                <li class="entry-author"><i class="fa fa-user"></i><?php echo get_the_author_link();?></li>
-                <li class="entry-catagory"><i class="fa fa-file-o"></i><?php the_category(', '); ?></li>                  
-            </ul> -->
+            <ul class="entry-meta">
+                <!-- <li class="entry-author"><i class="fa fa-user"></i><?php echo get_the_author_link();?></li> -->
+                <!-- <li class="entry-catagory"><i class="fa fa-file-o"></i><?php get_taxonomies(); ?></li>                   -->
+            </ul>
         </hgroup>
-        <?php onetone_get_breadcrumb(array("before"=>"<div class=''>","after"=>"</div>","show_browse"=>false,"separator"=>'','container'=>'div'));?> 
+        <?php onetone_get_breadcrumb( array( "before"=>"<div class=''>",
+                                             "after"=>"</div>",
+                                             "show_browse"=>false,
+                                             "separator"=>'',
+                                             'container'=>'div',
+                                        )
+                                    );
+        ?> 
         <div class="clearfix"></div>            
     </div>
 </section>
@@ -55,12 +62,18 @@ $aside = 'no-aside';
                     <?php while ( have_posts() ) : the_post(); ?>
                         <article class="post type-post">
                             <div class="youtube-row">
-                                <div class="col-xs-12 col-md-6 embed-responsive embed-responsive-16by9" style="padding-bottom: 43%;">
+                                <div class="col-xs-12 col-md-6 embed-responsive embed-responsive-16by9 course-embeded-video">
                                     <!-- Insert Embeded Youtube Link Field Here -->
                                     <?php echo $youtube_link; ?>
                                 </div>
 
                                 <div class="col-xs-12 col-md-6">
+                                    <a href="<?php echo $course_link ?>">
+                                        <button id="course-btn" class="btn btn-primary">
+                                            <h5>Go to Course</h5>
+                                        </button>
+                                    </a>
+                                    <div class="clearfix"></div>
                                     <div class="col-xs-5 col-sm-3 col-md-4 course-details" >
                                         <ul class="course-details">    
                                             <h4> Instructor : </h4>
@@ -83,29 +96,25 @@ $aside = 'no-aside';
                                     </div>
 
                                     <div class="description">
-                                        <h3>Description</h3>
+                                        <h3 class="course-section-title">Course Description</h3>
                                         <p>
                                             <?php echo $description; ?>
                                         </p>
                                     </div>
-                                    <a href="<?php echo $course_link ?>">
-                                        <button class="btn btn-lg btn-block btn-primary" style="float: right;">
-                                            <h4>Go to Course</h4>
-                                        </button>
-                                    </a>
+                                    
                                 </div>
                             </div>
                         </article>
 
                         <div class="col-md-12 objectives">
-                            <h3>Objectives</h3>
+                            <h3 class="course-section-title">Course Objectives</h3>
                             <p> 
                                 <?php echo $objectives; ?>
                             </p>
                         </div>
 
                         <div class="col-md-12 instructor-row">
-                            <h3>Instructor Background</h3>
+                            <h3 class="course-section-title">Instructor Background</h3>
                             <div class="col-xs-3 col-md-2 instructor-image">
                                 <img src="<?php echo $instructor_image['url'] ?>" class="img-thumbnail img-responsive" alt="<?php echo $instructor_image['alt']; ?>" width="100%" height="100%"> 
                             </div>
@@ -118,7 +127,7 @@ $aside = 'no-aside';
                         </div>
 
                         <div class="col-md-12 curriculum-row">
-                            <h3>Curriculum</h3>
+                            <h3 class="course-section-title">Curriculum</h3>
                             <?php echo "$curriculum"; ?>
                         </div>
                     <?php endwhile; // end of the loop. ?>
@@ -148,17 +157,17 @@ $aside = 'no-aside';
                 $related_items = new WP_Query( $args );
                 // loop over query
                 if ($related_items->have_posts()) :
-                    echo '
-                        <div class="col-md-12 related_post">
-                            <h3>Related Post</h3>
-                    ';
+                ?>
+                    <div class="col-md-12 related_post">
+                        <h3 class="course-section-title">Related Posts</h3>
+                <?php
                     while ( $related_items->have_posts() ) : $related_items->the_post();
                     ?>
                         <div class="col-xs-12 col-sm-6 col-md-3">
                             <div class="feature-img-box">
                                 <div class="img-box figcaption-middle text-center from-top fade-in">
                                     <a href="<?php the_permalink();?>">
-                                        <?php the_post_thumbnail();?>
+                                        <?php the_post_thumbnail( 'thumbnail' );?>
                                         <div class="img-overlay dark">
                                             <div class="img-overlay-container">
                                                 <div class="img-overlay-content">
