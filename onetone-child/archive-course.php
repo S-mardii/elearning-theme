@@ -95,13 +95,14 @@
 								$query = new WP_Query($args);
 							?>
 								<div id="<?php echo $termSlug; ?>" class="<?php echo $tab_content_active; ?>" >
+									<!-- List all courses -->
 									<div class="course-list">
 										<ul>
 											<?php
 											$count = 1;
 											while ($query->have_posts()) : $query->the_post();
 												if ( $count%4 == 1 ) {
-													echo '<div class="row">';
+													echo '<div class="row course-row">';
 												}?>
 
 												<div class="post-list" id="post-<?php the_ID(); ?>" >
@@ -109,7 +110,7 @@
 							                            <div class="feature-img-box">
 							                                <div class="img-box figcaption-middle text-center from-top fade-in">
 							                                    <a href="<?php the_permalink(); ?>" >
-							                                        <?php the_post_thumbnail(); ?>
+							                                        <?php the_post_thumbnail( 'thumbnail' ); ?>
 							                                        
 							                                        <div class="img-overlay dark">
 							                                            <div class="img-overlay-container">
