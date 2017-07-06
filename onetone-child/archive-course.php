@@ -5,37 +5,31 @@
 
 	get_header(); 
 
-	$left_sidebar   = onetone_option('left_sidebar_blog_archive','');
-	$right_sidebar  = onetone_option('right_sidebar_blog_archive','');
+	$left_sidebar   = onetone_option( 'left_sidebar_blog_archive', '' );
+	$right_sidebar  = onetone_option( 'right_sidebar_blog_archive', '' );
 	$aside          = 'no-aside';
-	
-	if( $left_sidebar != '' )
-		$aside = 'left-aside';
-	
-	if( $right_sidebar != '' )
-		$aside = 'right-aside';
-	
-	if( $left_sidebar != '' && $right_sidebar !='' )
-		$aside = 'both-aside';
+
 ?>
 
 <section class="page-title-bar title-left no-subtitle color_alternate" style="background-color: #5d9646; color: white !important; text-transform: uppercase;">
     <div class="container">
         <hgroup class="page-title">
-            <h1><?php the_title();?></h1>
-            <ul class="entry-meta">
+            <h1> <?php the_title();?> </h1>
+            <!-- <ul class="entry-meta">
                 <li class="entry-author"><i class="fa fa-user"></i><?php echo get_the_author_link();?></li>
                 <li class="entry-catagory"><i class="fa fa-file-o"></i><?php the_category(', '); ?></li>                  
-            </ul>
+            </ul> -->
         </hgroup>
-        <?php onetone_get_breadcrumb(array("before"=>"<div class=''>","after"=>"</div>","show_browse"=>false,"separator"=>'','container'=>'div'));?> 
+        <?php 
+        	onetone_get_breadcrumb(array("before"=>"<div class=''>","after"=>"</div>","show_browse"=>false,"separator"=>'','container'=>'div'));
+        ?> 
         <div class="clearfix"></div>            
     </div>
 </section>
 
 <div class="post-wrap">
 	<div class="container">
-		<div class="post-inner row <?php echo $aside; ?>">
+		<div class="post-inner <?php echo $aside; ?>">
 			<div class="col-main">
 				<section class="post-main" role="main" id="content">
 					<article class="page type-page">
@@ -63,16 +57,16 @@
 										$tab_header_active = 'active';
 									}
 									else {
-										$tab_header_active = '';
+										$tab_header_active = 'inactive';
 									}
 							?>
-									<li role="presentation" class="<?php echo $tab_header_active; ?>">
+									<li role="presentation" class="active-tab <?php echo $tab_header_active; ?>">
 										<a data-toggle="tab" href="<?php echo '#'.$termSlug;?>">
 											<?php echo '<h3>'.$termName.'</h3>';?>
 										</a>
 									</li>
 							<?php	
-							} //END foreach loop
+								} //END foreach loop
 							?>
 							</ul>
 							<!-- END Tab Header -->
@@ -101,14 +95,17 @@
 								$query = new WP_Query($args);
 							?>
 								<div id="<?php echo $termSlug; ?>" class="<?php echo $tab_content_active; ?>" >
-									<div class="row">
+									<div class="course-list">
 										<ul>
 											<?php
+											$count = 1;
 											while ($query->have_posts()) : $query->the_post();
-												?>
+												if ( $count%4 == 1 ) {
+													echo '<div class="row">';
+												}?>
 
-												<div class="post-list" id="post-<?php the_ID(); ?>">
-													<div class="col-xs-12 col-md-3">
+												<div class="post-list" id="post-<?php the_ID(); ?>" >
+													<div class="col-xs-12 col-sm-6 col-md-3">
 							                            <div class="feature-img-box">
 							                                <div class="img-box figcaption-middle text-center from-top fade-in">
 							                                    <a href="<?php the_permalink(); ?>" >
@@ -127,13 +124,21 @@
 							                            </div>
 
 							                            <div class="caption">
-							                                <h4><a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
-							                            </div>
-							                            
-							                        </div>
+							                                <h3><a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h3>
+							                            </div>   
+								                    </div>
 												</div>
-											<?php 
+
+											<?php
+												if ( $count%4 == 0 ) {
+													echo "</div>";
+												}
+												$count++;
 											endwhile;
+
+											if ( $count%4 != 1) {
+												echo "</div>";
+											}
 											?>
 										</ul>
 									</div>
