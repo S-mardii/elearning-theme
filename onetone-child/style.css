@@ -113,3 +113,43 @@ img.site-logo {
     
     margin-bottom: 20px;
 }
+
+
+/* Added by Sam An Mardy: 6.July.2017 */
+
+/* course tab header */
+.active-tab > a {
+    background: #95cdb4;
+    color: #000000;
+    opacity: 0.6;
+    margin: 2px;
+}
+
+.active > a {
+    background: #2b9c6a !important;
+    color: #FFF !important;
+    opacity: 1 !important;
+}
+
+.course-details {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* div for each row in course archive page */
+.course-row {
+    margin-top: 0 !important;
+}
+
+.feature-img-box {
+    width: 95%;
+}
+
+.nav-tabs {
+    margin: 0;
+}
+
+/* course tab content */
+.tab-content {
+    margin-top: 2%;
+}
